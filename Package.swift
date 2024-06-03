@@ -7,7 +7,7 @@ let package = Package(
      .iOS(.v14),
    ],
    products: [
-      .library(name: "Shared", targets: ["shared"])
+      .library(name: "Shared", targets: ["Shared"])
    ],
    targets: [
       .binaryTarget(

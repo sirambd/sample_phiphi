@@ -12,7 +12,7 @@ let package = Package(
    targets: [
       .binaryTarget(
          name: "Shared",
-         path: "./shared.xcframework.zip"
+         path: "shared.xcframework"
          )
    ]
 )

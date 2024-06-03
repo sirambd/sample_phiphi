@@ -5,11 +5,13 @@ plugins {
     alias(libs.plugins.androidLibrary)
 }
 
+val javaVersion = JavaVersion.VERSION_17
+
 kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = javaVersion.toString()
             }
         }
     }
@@ -49,7 +51,7 @@ android {
         minSdk = 24
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
     }
 }

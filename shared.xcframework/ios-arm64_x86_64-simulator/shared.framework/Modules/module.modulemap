@@ -1,4 +1,4 @@
-framework module shared {
+framework module "shared" {
     umbrella header "shared.h"
 
     export *

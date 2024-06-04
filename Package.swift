@@ -12,7 +12,11 @@ let package = Package(
    targets: [
       .binaryTarget(
          name: "Shared",
-         path: "shared.xcframework"
+         path: "shared.xcframework",
+         dependencies: [
+            // Swift Concurrency implementation
+            .product(name: "KMPNativeCoroutinesAsync", package: "KMP-NativeCoroutines"),
+         ]
          )
    ]
 )

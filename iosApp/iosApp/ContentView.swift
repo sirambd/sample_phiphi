@@ -5,6 +5,7 @@ struct ContentView: View {
 	let greet = Greeting().greet()
 
 	var body: some View {
+	Greeting.toto()
 		Text(greet)
 	}
 }

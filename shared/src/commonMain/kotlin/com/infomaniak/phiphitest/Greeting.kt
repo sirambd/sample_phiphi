@@ -1,5 +1,7 @@
 package com.infomaniak.phiphitest
 
+import com.rickclephas.kmp.nativecoroutines.NativeCoroutines
+import com.rickclephas.kmp.nativecoroutines.NativeCoroutinesState
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
@@ -9,13 +11,22 @@ class Greeting {
     private val platform: Platform = getPlatform()
     private val client = HttpClient()
 
+    @NativeCoroutinesState
     val totoResult = MutableStateFlow("")
 
     fun greet(): String {
         return "Hello, ${platform.name}!"
     }
 
-    suspend fun toto(): String {
+    @NativeCoroutines
+    suspend fun toto1(): String {
+        val response = client.get("https://ktor.io/docs/")
+        val bodyAsText = response.bodyAsText()
+        totoResult.emit(bodyAsText)
+        return bodyAsText
+    }
+
+    suspend fun toto2(): String {
         val response = client.get("https://ktor.io/docs/")
         val bodyAsText = response.bodyAsText()
         totoResult.emit(bodyAsText)

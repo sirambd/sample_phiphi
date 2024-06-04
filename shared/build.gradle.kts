@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.nativecouroutines)
 }
 
 val javaVersion = JavaVersion.VERSION_17
@@ -18,12 +19,14 @@ kotlin {
 
     // Name of the module to be imported in the consumer project
     val xcframeworkName = "shared"
-    val xcf = XCFramework(xcframeworkName)
+    val xcf = XCFramework()
 
     listOf(
         iosX64(),
         iosArm64(),
-        iosSimulatorArm64()
+        iosSimulatorArm64(),
+        macosX64(),
+        macosArm64(),
     ).forEach {
         it.binaries.framework {
             baseName = "shared"

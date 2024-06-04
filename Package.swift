@@ -9,16 +9,10 @@ let package = Package(
    products: [
       .library(name: "Shared", targets: ["Shared"])
    ],
-   dependencies: [
-       .package(url: "https://github.com/rickclephas/KMP-NativeCoroutines.git", exact: "1.0.0-ALPHA-31")
-   ],
    targets: [
-      .target(
+      .binaryTarget(
          name: "Shared",
-         dependencies: [
-            .product(name: "KMPNativeCoroutinesAsync", package: "KMP-NativeCoroutines"),
-         ],
          path: "shared.xcframework"
-      )
+         )
    ]
 )

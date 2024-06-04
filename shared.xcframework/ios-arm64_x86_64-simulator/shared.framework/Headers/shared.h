@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class SharedOperator, SharedUser, SharedKotlinThrowable, SharedKotlinArray<T>, SharedKotlinException, SharedKotlinRuntimeException, SharedKotlinIllegalStateException;
+@class SharedOperator, SharedUser, SharedGreeting, SharedKotlinUnit, NSError, SharedKotlinThrowable, SharedKotlinArray<T>, SharedKotlinException, SharedKotlinRuntimeException, SharedKotlinIllegalStateException;
 
 @protocol SharedKotlinx_coroutines_coreMutableStateFlow, SharedPlatform, SharedKotlinx_coroutines_coreFlowCollector, SharedKotlinx_coroutines_coreFlow, SharedKotlinx_coroutines_coreSharedFlow, SharedKotlinx_coroutines_coreStateFlow, SharedKotlinx_coroutines_coreMutableSharedFlow, SharedKotlinIterator;
 
@@ -197,6 +197,12 @@ __attribute__((swift_name("User")))
 @property (readonly) NSString *name __attribute__((swift_name("name")));
 @end
 
+@interface SharedGreeting (Extensions)
+- (SharedKotlinUnit *(^(^)(SharedKotlinUnit *(^)(NSString *, SharedKotlinUnit *), SharedKotlinUnit *(^)(NSError *, SharedKotlinUnit *), SharedKotlinUnit *(^)(NSError *, SharedKotlinUnit *)))(void))toto1 __attribute__((swift_name("toto1()")));
+@property (readonly) SharedKotlinUnit *(^(^totoResult1Flow)(SharedKotlinUnit *(^)(NSString *, SharedKotlinUnit *(^)(void), SharedKotlinUnit *), SharedKotlinUnit *(^)(NSError * _Nullable, SharedKotlinUnit *), SharedKotlinUnit *(^)(NSError *, SharedKotlinUnit *)))(void) __attribute__((swift_name("totoResult1Flow")));
+@property NSString *totoResult1 __attribute__((swift_name("totoResult1")));
+@end
+
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Platform_iosKt")))
 @interface SharedPlatform_iosKt : SharedBase
@@ -316,6 +322,16 @@ __attribute__((swift_name("Kotlinx_coroutines_coreMutableStateFlow")))
 @required
 - (void)setValue:(id _Nullable)value __attribute__((swift_name("setValue(_:)")));
 - (BOOL)compareAndSetExpect:(id _Nullable)expect update:(id _Nullable)update __attribute__((swift_name("compareAndSet(expect:update:)")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("KotlinUnit")))
+@interface SharedKotlinUnit : SharedBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)unit __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) SharedKotlinUnit *shared __attribute__((swift_name("shared")));
+- (NSString *)description __attribute__((swift_name("description()")));
 @end
 
 __attribute__((objc_subclassing_restricted))

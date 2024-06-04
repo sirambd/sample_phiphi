@@ -19,7 +19,7 @@ kotlin {
 
     // Name of the module to be imported in the consumer project
     val xcframeworkName = "shared"
-    val xcf = XCFramework()
+    val xcf = XCFramework(xcframeworkName)
 
     listOf(
         iosX64(),

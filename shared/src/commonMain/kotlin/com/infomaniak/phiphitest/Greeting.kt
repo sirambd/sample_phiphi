@@ -12,7 +12,8 @@ class Greeting {
     private val client = HttpClient()
 
     @NativeCoroutinesState
-    val totoResult = MutableStateFlow("")
+    val totoResult1 = MutableStateFlow("")
+    val totoResult2 = MutableStateFlow("")
 
     fun greet(): String {
         return "Hello, ${platform.name}!"
@@ -22,14 +23,14 @@ class Greeting {
     suspend fun toto1(): String {
         val response = client.get("https://ktor.io/docs/")
         val bodyAsText = response.bodyAsText()
-        totoResult.emit(bodyAsText)
+        totoResult1.emit(bodyAsText)
         return bodyAsText
     }
 
     suspend fun toto2(): String {
         val response = client.get("https://ktor.io/docs/")
         val bodyAsText = response.bodyAsText()
-        totoResult.emit(bodyAsText)
+        totoResult2.emit(bodyAsText)
         return bodyAsText
     }
 }

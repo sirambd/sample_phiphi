@@ -13,6 +13,7 @@ class Greeting {
 
     @NativeCoroutinesState
     val totoResult1 = MutableStateFlow("")
+    @NativeCoroutinesState
     val totoResult2 = MutableStateFlow("")
 
     fun greet(): String {

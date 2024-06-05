@@ -17,7 +17,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "Shared",
-            path: "shared.xcframework"
+            path: "shared.xcframework.zip"
         ),
         .target(name: "Dependencies", dependencies: [
             .product(name: "KMPNativeCoroutinesCore", package: "KMP-NativeCoroutines"),

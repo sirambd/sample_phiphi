@@ -17,6 +17,8 @@ class Greeting {
     @NativeCoroutinesState
     val totoResult2 = MutableStateFlow("")
 
+    val totoResult3 get() = totoResult2.wrap()
+
     fun greet(): String {
         return "Hello, ${platform.name}!"
     }

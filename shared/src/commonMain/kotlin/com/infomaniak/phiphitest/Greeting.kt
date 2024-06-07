@@ -19,6 +19,8 @@ class Greeting {
 
     val totoResult3 get() = totoResult2.wrap()
 
+    val totoResultSkie get() = MutableStateFlow("")
+
     fun greet(): String {
         return "Hello, ${platform.name}!"
     }
@@ -35,6 +37,13 @@ class Greeting {
         val response = client.get("https://ktor.io/docs/")
         val bodyAsText = response.bodyAsText()
         totoResult2.emit(bodyAsText)
+        return bodyAsText
+    }
+
+    suspend fun totoSkie(): String {
+        val response = client.get("https://ktor.io/docs/")
+        val bodyAsText = response.bodyAsText()
+        totoResultSkie.emit(bodyAsText)
         return bodyAsText
     }
 }

@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.nativecouroutines)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.skie)
 }
 
 val javaVersion = JavaVersion.VERSION_17

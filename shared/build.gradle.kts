@@ -1,3 +1,4 @@
+import co.touchlab.skie.configuration.DefaultArgumentInterop
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
@@ -65,6 +66,13 @@ kotlin {
 skie {
     features {
         enableSwiftUIObservingPreview = true
+        group {
+            DefaultArgumentInterop.Enabled(true)
+            DefaultArgumentInterop.MaximumDefaultArgumentCount(7)
+        }
+    }
+    build {
+        produceDistributableFramework()
     }
 }
 

@@ -62,6 +62,12 @@ kotlin {
     }
 }
 
+skie {
+    features {
+        enableSwiftUIObservingPreview = true
+    }
+}
+
 android {
     namespace = "com.infomaniak.phiphitest"
     compileSdk = 34

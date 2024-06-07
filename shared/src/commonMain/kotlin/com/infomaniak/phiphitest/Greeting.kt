@@ -6,6 +6,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 class Greeting {
     private val platform: Platform = getPlatform()
@@ -19,7 +20,8 @@ class Greeting {
 
     val totoResult3 get() = totoResult2.wrap()
 
-    val totoResultSkie get() = MutableStateFlow("")
+    private val _totoResultSkie = MutableStateFlow("")
+    val totoResultSkie: StateFlow<String> = _totoResultSkie
 
     fun greet(): String {
         return "Hello, ${platform.name}!"
@@ -43,7 +45,7 @@ class Greeting {
     suspend fun totoSkie(): String {
         val response = client.get("https://ktor.io/docs/")
         val bodyAsText = response.bodyAsText()
-        totoResultSkie.emit(bodyAsText)
+        _totoResultSkie.value = bodyAsText
         return bodyAsText
     }
 }

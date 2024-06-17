@@ -2,15 +2,18 @@ package com.infomaniak.phiphitest
 
 import com.rickclephas.kmp.nativecoroutines.NativeCoroutines
 import com.rickclephas.kmp.nativecoroutines.NativeCoroutinesState
-import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlin.coroutines.cancellation.CancellationException
 
 class Greeting {
     private val platform: Platform = getPlatform()
-    private val client = HttpClient()
+    private val apiConfig = ApiConfig()
+
+    private val client inline get() = apiConfig.defaultHttpClient
+//    private val client = HttpClient()
 
     @NativeCoroutinesState
     val totoResult1 = MutableStateFlow("")
@@ -42,6 +45,7 @@ class Greeting {
         return bodyAsText
     }
 
+    @Throws(CancellationException::class, NetworkException::class)
     suspend fun totoSkie(): String {
         val response = client.get("https://ktor.io/docs/")
         val bodyAsText = response.bodyAsText()

@@ -4,6 +4,7 @@ androidx-activityCompose = "1.9.0"
 compose = "1.6.7"
 compose-compiler = "1.5.4"
 compose-material3 = "1.2.1"
+configurationAnnotations = "0.8.2"
 coroutines = "1.8.1"
 kotlin = "2.0.0"
 ksp = "2.0.0-1.0.21"
@@ -18,6 +19,7 @@ compose-material3 = { module = "androidx.compose.material3:material3", version.r
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+configuration-annotations = { module = "co.touchlab.skie:configuration-annotations", version.ref = "skie" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }

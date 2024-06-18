@@ -3,13 +3,14 @@ package com.infomaniak.phiphitest
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.engine.HttpClientEngineFactory
+import io.ktor.client.plugins.HttpRequestRetry
 import io.ktor.client.plugins.HttpResponseValidator
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.ResponseException
 import io.ktor.client.statement.HttpResponse
 import io.ktor.utils.io.errors.IOException
 
-internal class ApiConfig {
+internal class ApiConfig(private val httpClient: HttpClient = createHttpClient()) {
 
     val defaultHttpClient = createHttpClient()
 
@@ -25,6 +26,14 @@ internal class ApiConfig {
                 requestTimeoutMillis = 10000
                 connectTimeoutMillis = 10000
                 socketTimeoutMillis = 10000
+            }
+            install(HttpRequestRetry) {
+                retryOnExceptionIf(maxRetries = 3) { _, cause ->
+                    cause.isNetworkException()
+                }
+                delayMillis { retry ->
+                    retry * 3000L
+                }
             }
             HttpResponseValidator {
                 validateResponse { response: HttpResponse ->
@@ -44,5 +53,7 @@ internal class ApiConfig {
         return if (engine != null) HttpClient(engine, block) else HttpClient(block)
     }
 }
+
+private fun Throwable.isNetworkException() = this is IOException
 
 class NetworkException(message: String) : IOException(message)

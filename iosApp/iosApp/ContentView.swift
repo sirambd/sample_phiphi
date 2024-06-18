@@ -2,22 +2,23 @@ import shared
 import SwiftUI
 
 let greeting = Greeting()
+let appManager = AppManager()
 
 struct ContentView: View {
     var body: some View {
         Text("hey").onAppear {
             Task {
-                for await result in greeting.totoResultSkie {
+                for await result in appManager.testResultFlow {
                     print("totoResultSkie flow result=\(result)")
                 }
             }
             Task {
                 do {
-                    try await greeting.totoSkie()
+                    try await appManager.testCall()
                 } catch is NetworkException {
                     print("ça ne marche pas comme ça, il faut regarder l'exemple en dessous")
                 } catch let error as NSError {
-                    print("exception =\(error.kotlinException is NetworkException)")
+                    print("is network exception = \(error.kotlinException is NetworkException)")
                 }
             }
         }

@@ -10,7 +10,7 @@ import io.ktor.client.plugins.ResponseException
 import io.ktor.client.statement.HttpResponse
 import io.ktor.utils.io.errors.IOException
 
-internal class ApiConfig(private val httpClient: HttpClient = createHttpClient()) {
+internal class ApiConfig {
 
     val defaultHttpClient = createHttpClient()
 

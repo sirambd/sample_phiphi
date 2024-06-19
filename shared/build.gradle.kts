@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.nativecouroutines)
     alias(libs.plugins.ksp)
     alias(libs.plugins.skie)
+    alias(libs.plugins.realmPlugin)
 }
 
 val javaVersion = JavaVersion.VERSION_17
@@ -48,6 +49,7 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.configuration.annotations)
+            implementation(libs.realm)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

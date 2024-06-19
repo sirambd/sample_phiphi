@@ -11,6 +11,7 @@ ksp = "2.0.0-1.0.21"
 ktor = "2.3.11"
 nativecouroutines = "1.0.0-ALPHA-31"
 skie = "0.8.2"
+realm = "2.0.0"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
@@ -26,6 +27,7 @@ kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-c
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+realm = { module = "io.realm.kotlin:library-base", version.ref = "realm" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -36,4 +38,5 @@ skie = { id = "co.touchlab.skie", version.ref = "skie" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+realmPlugin = { id = "io.realm.kotlin", version.ref = "realm" }
 nativecouroutines = { id = "com.rickclephas.kmp.nativecoroutines", version.ref = "nativecouroutines" }

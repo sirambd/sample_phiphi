@@ -8,4 +8,13 @@ plugins {
     alias(libs.plugins.nativecouroutines) apply false
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.skie) apply false
+    alias(libs.plugins.realmPlugin) apply false
+}
+
+tasks.register<Copy>("copyReleasedFiles") {
+//    dependsOn(tasks.named("assembleSharedReleaseXCFramework"))
+    dependsOn(":shared:assembleSharedReleaseXCFramework")
+
+    from("shared/build/XCFrameworks/release/shared.xcframework")
+    into(File(project.rootDir, "shared.xcframework"))
 }

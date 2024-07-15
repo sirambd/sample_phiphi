@@ -13,7 +13,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "Shared",
-            path: "shared.xcframework.zip"
+//            path: "shared.xcframework.zip",
+            url: "https://github.com/sirambd/sample_phiphi/releases/download/1.0.21/shared.xcframework.zip"
         )
     ]
 )
